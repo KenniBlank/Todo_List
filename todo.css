@@ -1,21 +1,95 @@
-@media (max-width: 760px){
+@keyframes button{
+    0%{
+        transform: rotateZ(0deg);
+    }
 
+    50%{
+        transform: rotateZ(-10deg);
+    }
+    100%{
+        transform: rotateZ(10deg);
+    }
 }
-
 
 *{
     margin: 0;
-    background-color: #ffffff;
+    border: none;
+    background-color: White;
     padding: 0;
+    box-sizing: border-box;
 }
 
-
-.delete_button{
-    width: 20px;
+body{
+    width: 100%;
 }
 
 
 .grid{
-    display: grid;
-    grid-template-columns: repeat(4, auto);
+    display: inline-block;
+    border: 1px solid black;
+}
+
+img{
+    width: 20px;
+}
+
+img:hover{
+    animation: button 1s linear;
+    width: 23px;
+    border: 0.1px solid black;
+    border-radius: 50%;
+    background: black;
+}
+
+
+
+
+
+
+
+/* Confirmation Prompt */
+#confirmation{
+    display: none;
+    width: 150px;
+    height: 100px;
+    text-align: center;
+    background-color: whitesmoke;
+    border: 0.01rem solid rgb(211, 207, 207);
+    box-shadow: 3px 3px 5px 1px rgb(151, 150, 150);
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#confirmation > button{
+    margin-top: 1rem;
+    color: rgb(54, 54, 249);
+    background-color: whitesmoke;
+    font-size: 20px;
+}
+
+#confirmation > p{
+    background: whitesmoke;
+    margin-top: 1rem;
+}
+#yes:hover{
+    background-color: rgb(54, 54, 249);
+    color: white;
+    font-size: 20px;
+    width: 3rem;
+    padding: 0.3rem;
+}
+
+button#no{
+    margin-left: 1rem;
+    color: rgb(251, 51, 51);
+}
+
+#no:hover{
+    background-color: rgb(251, 51, 51);
+    color: white;
+    width: 3rem;
+    padding: 0.3rem;
 }

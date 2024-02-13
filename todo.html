@@ -13,14 +13,22 @@
     </header>
 
     <main>
+        
         <div class="todo">
             <input type="text" id="task" required placeholder="Task">
             
-            <button id="addtask" type="submit">New Task</button>
+            <button id="addtask" type="submit">
+                <img src="img/add.png" alt="add box">
+            </button>
+
+            <div id="confirmation">
+                <p>Are you Sure?</p>
+                <button id="yes">Yes</button>
+                <button id="no">No</button>
+            </div>
         </div>
 
-        <div id="tasks" class="grid">
-
+        <div id="tasks">
         </div>
     </main>
 
