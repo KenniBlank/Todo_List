@@ -10,7 +10,7 @@ h2{
     font-size: 3rem;
 }
 #reload{
-    width: 2.7rem;
+    width: 3rem;
 }
 
 /* main part */
@@ -29,7 +29,7 @@ h2{
     vertical-align: middle;
 }
 #add_image{
-    width: 1.5rem;
+    width: 2rem;
     padding: 0.1rem;
     vertical-align: middle;
 }
@@ -45,6 +45,14 @@ h2{
     height: 3rem;
     width: 20rem;
     border: 1px solid black;
+    box-shadow: 1px 1px 3px 2px rgb(211, 211, 211);
+}
+
+.task_s> .del_image:hover{
+    width: 2.2rem;
+    border: 1px solid black;
+    border-radius: 50%;
+    animation: tilt 1s linear;
 }
 
 .del_image {
@@ -57,4 +65,18 @@ h2{
     transform: scale(1.25); 
     margin-right: auto;
     margin-left: 1rem;
+}
+
+
+@keyframes tilt{
+    0%, 100%{
+        transform: rotateZ(0deg);
+    }
+
+    40%{
+        transform: rotateZ(-10deg);
+    }
+    80%{
+        transform: rotateZ(10deg);
+    }
 }

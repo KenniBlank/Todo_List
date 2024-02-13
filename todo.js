@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
         let ul = document.getElementById('tasks');
         ul.appendChild(list);
+        document.getElementById('thetask').value = '';
     }
 
     function UniqueId(name, array){
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         return name + x;
     }
     function exit(){
-        document.getElementById('thetask').placeholder = "Enter Something 💀";
+        document.getElementById('thetask').placeholder = "Enter Something !!💀";
         document.getElementById('thetask').style.color = 'red'; 
         document.getElementById('thetask').style.border = '1px solid black';   
     }
