@@ -19,12 +19,13 @@ h2{
 .addtask{
     display: grid;
     place-items: center;
+    margin: 1rem;
 }
 #thetask{
     height: 1.5rem;
     border: 0.1rem solid;
     font-size: 1.2rem;
-    padding: 0.1rem;
+    padding: 1rem;
     vertical-align: middle;
 }
 #add_image{
@@ -35,9 +36,25 @@ h2{
 
 /* From the JS*/
 
-.tasks{
-    font-size: 1px;
+
+.task_s{
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 20rem;
+    border: 1px solid black;
 }
-.del_image{
-    width: 1rem;
+
+.del_image {
+    margin-left: auto;
+    margin-right: 1rem;
+    width: 2rem;
+}
+
+[type="checkbox"] {
+    transform: scale(1.25); 
+    margin-right: auto;
+    margin-left: 1rem;
 }

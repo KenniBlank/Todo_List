@@ -5,7 +5,11 @@ document.addEventListener('DOMContentLoaded',()=>{
         let array = [];
         let temp = 'A0';
         let task = document.getElementById('thetask').value;
-
+        if (!task){
+            exit();
+            return;
+        }
+        document.getElementById('thetask').style.color = 'black';
         temp = UniqueId(task, array);
         let checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
@@ -34,6 +38,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         });
 
         let div = document.createElement('div');
+        div.classList.add('task_s')
         div.appendChild(checkbox);
         div.appendChild(label);
         div.appendChild(delete_ul);
@@ -52,5 +57,10 @@ document.addEventListener('DOMContentLoaded',()=>{
         } while (array.includes(name + x));
         array.push(name + x);
         return name + x;
+    }
+    function exit(){
+        document.getElementById('thetask').placeholder = "Enter Something 💀";
+        document.getElementById('thetask').style.color = 'red'; 
+        document.getElementById('thetask').style.border = '1px solid black';   
     }
 });
