@@ -2,38 +2,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="img/check-list.png">    
-    <title>ToDo List</title>
     <link rel="stylesheet" href="todo.css">
+    <link rel="icon" type = "image/png" href="img/check-list.png">
+    <title>TODO List</title>
     <script src="todo.js"></script>
 </head>
 <body>
     <header>
-
+        <h2>
+            My To Do List
+            <a href="todo.html"><img src="img/check-list.png" alt="This is a image of pen and notebook" id = "reload"></a>
+        </h2>
     </header>
 
-    <main>
-        
-        <div class="todo">
-            <input type="text" id="task" required placeholder="Task">
-            
-            <button id="addtask" type="submit">
-                <img src="img/add.png" alt="add box">
-            </button>
 
-            <div id="confirmation">
-                <p>Are you Sure?</p>
-                <button id="yes">Yes</button>
-                <button id="no">No</button>
+    <main>
+        <div class="addtask">
+            <div class = "task">
+                <input type="text" id="thetask" required placeholder="Task...">
+                <button type="submit" id="add">
+                    <img src="img/add.png" alt = "a plus signed circular image" id="add_image">
+                </button>
             </div>
         </div>
+        <div>
+            <ul id="tasks">
 
-        <div id="tasks">
+            </ul>
         </div>
     </main>
-
-    <footer>
-        
-    </footer>
 </body>
 </html>

@@ -1,51 +1,56 @@
-document.addEventListener('DOMContentLoaded', ()=>{
-    // addlist is the button to be clicked to add tasks
-    const addlist = document.getElementById('addtask')
+document.addEventListener('DOMContentLoaded',()=>{
+    document.getElementById('add').addEventListener('click', main);
+   
+    function main(){
+        let array = [];
+        let temp = 'A0';
+        let task = document.getElementById('thetask').value;
 
-    addlist.addEventListener('click',()=>{
-        // Getting the value of the task
-        const task = document.getElementById('task').value;
-
-
-        // Creating a checkbox for task completion
-        const checkbox = document.createElement('input');
+        temp = UniqueId(task, array);
+        let checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
-        checkbox.id = task;
+        checkbox.id = temp;
 
-        // Creating a label which has the task as content and is connected to the checkbox
-        const label = document.createElement('label');
+        let label = document.createElement('label');
+        label.setAttribute('for', temp);
         label.textContent = task;
-        label.setAttribute('for', task);
 
-        //creating a delete button to delete task
-        const del = document.createElement('img');
-        del.setAttribute('src', 'img/bin.png')
-        del.setAttribute('alt','a small image of a bin')
-        del.id = task;
-        del.classList.add('delete_button');
+        let delete_ul = document.createElement('img');
+        delete_ul.setAttribute('src',"img/bin.png");
+        delete_ul.setAttribute('class','del_image');
 
-        // creating a div to hold the label, checkbox and del which can be appended to the parent div
-        const div = document.createElement('div');
-        div.classList.add('grid');
-        div.appendChild(checkbox);
-        div.appendChild(label);
-        div.appendChild(del);
-        document.getElementById('tasks').appendChild(div);
-
-        // Confirming that the user want's to delete the task
-        del.addEventListener('click',()=>{
-            // Confirmation is a diplay = 'none' block that can be used
-            document.getElementById("confirmation").style.display = 'block';
-
-            document.getElementById('yes').addEventListener('click',()=> {
-                div.parentNode.removeChild(div);
-                document.getElementById("confirmation").style.display = 'none';
-            });
-
-            document.getElementById('no').addEventListener('click',()=>{
-                document.getElementById("confirmation").style.display = 'none';
-            });
+        delete_ul.addEventListener('click',()=>{
+            let listItem = delete_ul.parentElement.parentElement;
+            listItem.parentElement.removeChild(listItem);
         })
 
-    });
+        checkbox.addEventListener('click', ()=>{
+            if (checkbox.checked == true){
+                label.style.textDecoration = 'line-through';
+            }
+            else{
+                label.style.textDecoration = 'none';
+            }
+        });
+
+        let div = document.createElement('div');
+        div.appendChild(checkbox);
+        div.appendChild(label);
+        div.appendChild(delete_ul);
+
+        let list = document.createElement('li');
+        list.appendChild(div);
+
+        let ul = document.getElementById('tasks');
+        ul.appendChild(list);
+    }
+
+    function UniqueId(name, array){
+        let x;
+        do {
+            x = Math.random() * 100;
+        } while (array.includes(name + x));
+        array.push(name + x);
+        return name + x;
+    }
 });
