@@ -44,7 +44,7 @@ h2{
     align-items: center;
     height: 3rem;
     width: 20rem;
-    border: 1px solid black;
+    border-radius: 0.5rem;
     box-shadow: 1px 1px 3px 2px rgb(211, 211, 211);
 }
 
@@ -52,7 +52,6 @@ h2{
     border: 1px solid black;
     border-radius: 50%;
     animation: tilt 1s linear infinite;
-    transform: scale(1.2);
 }
 
 .del_image {

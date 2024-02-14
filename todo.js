@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded',()=>{
             exit();
             return;
         }
+        document.getElementById('thetask').placeholder = "Task...";
+
         document.getElementById('thetask').style.color = 'black';
         temp = UniqueId(task, array);
         let checkbox = document.createElement('input');
@@ -31,9 +33,11 @@ document.addEventListener('DOMContentLoaded',()=>{
         checkbox.addEventListener('click', ()=>{
             if (checkbox.checked == true){
                 label.style.textDecoration = 'line-through';
+                div.style.background = "rgb(249, 74, 74)";
             }
             else{
                 label.style.textDecoration = 'none';
+                div.style.background = 'none';
             }
         });
 
