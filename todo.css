@@ -68,18 +68,24 @@ h2{
 
 
 .highlight{
-    animation : highli 2s linear infinite;
+    animation : highli 1.5s linear 1;
 }
 
 @keyframes highli{
-    0%, 100%{
+    0%{
+        transform: scale(1);
+    }
+    30%{
         transform: scale(1.1);
     }
-    40%{
-        transform: scale(0.95);
-    }
-    80%{
+    50%{
         transform: scale(1.2);
+    }
+    70%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
     }
 }
 
