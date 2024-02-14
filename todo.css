@@ -60,15 +60,28 @@ h2{
     width: 2rem;
 }
 
-
-
-
 [type="checkbox"] {
     transform: scale(1.25); 
     margin-right: auto;
     margin-left: 1rem;
 }
 
+
+.highlight{
+    animation : highli 2s linear infinite;
+}
+
+@keyframes highli{
+    0%, 100%{
+        transform: scale(1.1);
+    }
+    40%{
+        transform: scale(0.95);
+    }
+    80%{
+        transform: scale(1.2);
+    }
+}
 
 @keyframes tilt{
     0%, 100%{

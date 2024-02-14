@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded',()=>{
     document.getElementById('add').addEventListener('click', main);
-   
+    document.getElementById('thetask').addEventListener('click', default_task);
     function main(){
         let array = [];
         let temp = 'A0';
@@ -9,9 +9,6 @@ document.addEventListener('DOMContentLoaded',()=>{
             exit();
             return;
         }
-        document.getElementById('thetask').placeholder = "Task...";
-
-        document.getElementById('thetask').style.color = 'black';
         temp = UniqueId(task, array);
         let checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
@@ -63,9 +60,15 @@ document.addEventListener('DOMContentLoaded',()=>{
         array.push(name + x);
         return name + x;
     }
+    function default_task(){
+        let box = document.getElementById('thetask');
+        box.classList.remove('highlight');
+        box.style.border = "1px solid black";
+        box.placeholder = 'Task...';
+    }
     function exit(){
         document.getElementById('thetask').placeholder = "Enter Something !!💀";
-        document.getElementById('thetask').style.color = 'red'; 
-        document.getElementById('thetask').style.border = '1px solid black';   
+        document.getElementById('thetask').style.border = '0.1rem dotted';
+        document.getElementById('thetask').classList.add('highlight');
     }
 });
