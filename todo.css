@@ -49,10 +49,10 @@ h2{
 }
 
 .task_s> .del_image:hover{
-    width: 2.2rem;
     border: 1px solid black;
     border-radius: 50%;
-    animation: tilt 1s linear;
+    animation: tilt 1s linear infinite;
+    transform: scale(1.2);
 }
 
 .del_image {
@@ -60,6 +60,9 @@ h2{
     margin-right: 1rem;
     width: 2rem;
 }
+
+
+
 
 [type="checkbox"] {
     transform: scale(1.25); 
@@ -70,13 +73,13 @@ h2{
 
 @keyframes tilt{
     0%, 100%{
-        transform: rotateZ(0deg);
+        transform: scale(1.2) rotateZ(0deg);
     }
 
     40%{
-        transform: rotateZ(-10deg);
+        transform: scale(1.1) rotateZ(-10deg);
     }
     80%{
-        transform: rotateZ(10deg);
+        transform: scale(1.15) rotateZ(10deg);
     }
 }
