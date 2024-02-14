@@ -1,26 +1,61 @@
 document.addEventListener('DOMContentLoaded',()=>{
+    reload_function();
+    document.getElementById('thetask').addEventListener('click', default_task);
     document.getElementById('add').addEventListener('click', main);
     window.addEventListener('keydown', function (e){
             if (e.key === "Enter"){
                 this.document.getElementById('add').click();
             }
-    })
-    document.getElementById('thetask').addEventListener('click', default_task);
+    });
+
     function main(){
         let array = [];
-        let temp = 'A0';
         let task = document.getElementById('thetask').value;
         if (!task){
             exit();
             return;
         }
-        temp = UniqueId(task, array);
+        let unique_id = UniqueId(task, array);
+
+        localStorage.setItem(unique_id, task);
+
+        display(unique_id, task);
+    }
+
+    function UniqueId(name, array){
+        let x;
+        do {
+            x = Math.random() * 100;
+        } while (array.includes(name + x));
+        array.push(name + x);
+        return name + x;
+    }
+    function default_task(){
+        let box = document.getElementById('thetask');
+        box.style.border = "1px solid black";
+        box.placeholder = 'Task...';
+    }
+    function exit(){
+        document.getElementById('thetask').placeholder = "Enter Something !!💀";
+        document.getElementById('thetask').style.border = '0.1rem dotted';
+    }
+
+    function reload_function(){
+        for(let i=0; i<localStorage.length; i++)
+        {
+            let unique_id = localStorage.key(i);
+            let task = localStorage.getItem(unique_id);
+            display(unique_id, task);
+        }
+    }
+
+    function display(unique_id, task){
         let checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
-        checkbox.id = temp;
+        checkbox.id = unique_id;
 
         let label = document.createElement('label');
-        label.setAttribute('for', temp);
+        label.setAttribute('for', unique_id);
         label.textContent = task;
 
         let delete_ul = document.createElement('img');
@@ -30,6 +65,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         delete_ul.addEventListener('click',()=>{
             let listItem = delete_ul.parentElement.parentElement;
             listItem.parentElement.removeChild(listItem);
+            localStorage.removeItem(unique_id);
         })
 
         checkbox.addEventListener('click', ()=>{
@@ -55,23 +91,5 @@ document.addEventListener('DOMContentLoaded',()=>{
         let ul = document.getElementById('tasks');
         ul.appendChild(list);
         document.getElementById('thetask').value = '';
-    }
-
-    function UniqueId(name, array){
-        let x;
-        do {
-            x = Math.random() * 100;
-        } while (array.includes(name + x));
-        array.push(name + x);
-        return name + x;
-    }
-    function default_task(){
-        let box = document.getElementById('thetask');
-        box.style.border = "1px solid black";
-        box.placeholder = 'Task...';
-    }
-    function exit(){
-        document.getElementById('thetask').placeholder = "Enter Something !!💀";
-        document.getElementById('thetask').style.border = '0.1rem dotted';
     }
 });
