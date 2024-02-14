@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded',()=>{
     document.getElementById('add').addEventListener('click', main);
+    window.addEventListener('keydown', function (e){
+            if (e.key === "Enter"){
+                this.document.getElementById('add').click();
+            }
+    })
     document.getElementById('thetask').addEventListener('click', default_task);
     function main(){
         let array = [];
@@ -62,13 +67,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     }
     function default_task(){
         let box = document.getElementById('thetask');
-        box.classList.remove('highlight');
         box.style.border = "1px solid black";
         box.placeholder = 'Task...';
     }
     function exit(){
         document.getElementById('thetask').placeholder = "Enter Something !!💀";
         document.getElementById('thetask').style.border = '0.1rem dotted';
-        document.getElementById('thetask').classList.add('highlight');
     }
 });
